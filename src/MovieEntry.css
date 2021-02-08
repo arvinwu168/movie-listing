@@ -1,0 +1,8 @@
+tr, table {
+    text-align: left;
+}
+
+.entry-div {
+    padding: 8px;
+    border:1px solid lightgrey;
+}
