@@ -1,8 +1,10 @@
-tr, table {
+div {
     text-align: left;
+    font-family: serif;
 }
 
 .entry-div {
     padding: 8px;
     border:1px solid lightgrey;
+    border-radius: 5px;
 }

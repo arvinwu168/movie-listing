@@ -17,10 +17,7 @@ class App extends React.Component{
       {'name': 'The Lazarus Effect','rating':6.4 , 'category': 'Thriller'},
       {'name': 'Everly','rating': 5.0 , 'category': 'Action'},
       {'name': 'Maps to the Stars','rating': 7.5 , 'category': 'Drama'},
-      // {'name': ,'rating': , 'category': },
-      // {'name': ,'rating': , 'category': },
-      // {'name': ,'rating': , 'category': },
-      // {'name': ,'rating': , 'category': },
+
     ]
 
     this.inputHandler = this.inputHandler.bind(this)
@@ -37,10 +34,15 @@ class App extends React.Component{
   }
 
   
-  // remember unmount
   componentDidMount(){
     const searchBar = document.getElementById('searchBar');
     searchBar.addEventListener('input', this.inputHandler);
+  }
+
+  componentDidUnmount() {
+    const searchBar = document.getElementById('searchBar');
+    searchBar.removeEventListener('input', this.inputHandler);
+
   }
 
   render(){
@@ -52,26 +54,19 @@ class App extends React.Component{
           <input 
             id="searchBar"
             type="text" 
-            placeholder="Search.."
+            placeholder="Type to search..."
           />
-          
         </span>
         
         {this.allCategories.map((category) => 
+            <MovieCategory
+              key={`${category}-category`}
+              movies={this.groupedMovies[category]}
+              category={category}
+              searchTerm={this.state.searchTerm}
+            />
+        )}
 
-            
-            {
-              console.log("curent search term",this.state.searchTerm);
-            console.log(category,this.groupedMovies[category]);  
-            return (<MovieCategory
-            movies={this.groupedMovies[category]}
-            category={category}
-            searchTerm={this.state.searchTerm}
-            />)}
-          )}
-        
-
-        
       </div>
     );
   }

@@ -9,7 +9,7 @@ class MovieCategory extends React.Component{
 
   render(){
     const { category, movies, searchTerm } = this.props;
-    console.log(searchTerm,"st");
+
     let filderedMovies = movies.filter(movie => (searchTerm.length == 0 || movie.name.toLowerCase().includes(searchTerm.toLowerCase())))
 
     return (
@@ -17,8 +17,8 @@ class MovieCategory extends React.Component{
             <h3 className={'category-title'}>{`${category} (${filderedMovies.length})`}</h3>
             <ul>
                 {filderedMovies.map( (movie)=> 
-                    <li key={movie}>
-                        <MovieEntry 
+                    <li key={`${movie.name}-li`}>
+                        <MovieEntry
                             name={movie.name}
                             rating={movie.rating}
                             category={movie.category}

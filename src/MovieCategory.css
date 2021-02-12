@@ -1,9 +1,17 @@
 .category-title{
     text-align: left;
+    font-family: serif;
+    font-size: 30px;
+
+}
+
+h3{
+    margin: 10px;
 }
 
 ul, li {
     padding: 5px;
+    margin: 0px;
     list-style-type: none;
     margin-left: 0;
 }

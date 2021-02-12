@@ -4,13 +4,7 @@ import PropTypes from 'prop-types';
 import './MovieEntry.css';
 
 class MovieEntry extends React.Component{
-//   constructor(props) {
-//     super(props);
 
-//     this.name = props.name
-//     this.rating = props.rating
-//     this.category = props.category
-//   }
     generateStar(numericalRating){
         const totalStars = 5
         const maxNumericalRating = 10
@@ -21,17 +15,15 @@ class MovieEntry extends React.Component{
     }
 
     render(){
-        const { name, rating, category } = this.props;
+        const { name, rating } = this.props;
 
         return (
-            <div className={'entry-div'} >
-                <table>
-                    <tr>{this.generateStar(rating)}</tr>
-                    <tr>
-                        <a href={`https://www.imdb.com/find?q=${name}`}>{name}</a>
-                    </tr>
-                </table>
-            </div>
+            <React.Fragment>
+                <div className={'entry-div'}>
+                    <div>{this.generateStar(rating)}</div>
+                    <a href={`https://www.imdb.com/find?q=${name}`}>{name}</a>
+                </div>
+            </React.Fragment>
         );
     }
 }
